@@ -15,5 +15,5 @@ resource "aws_instance" "app_server" {
 
 # S3 Bucket (Storage)
 resource "aws_s3_bucket" "app_bucket" {
-  bucket = "devopsapp-bucket-12345"
+  bucket = "asif-devops-app-bucket-2026"
 }
