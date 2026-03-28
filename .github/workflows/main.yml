@@ -12,9 +12,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Verify project structure
-        run: |
-          echo "Checking project..."
-          ls
-          ls devops-assessment-java
-          echo "CI/CD pipeline successful"
+      - name: Install Maven
+        run: sudo apt-get update && sudo apt-get install -y maven
+
+      - name: Build project
+        run: mvn clean install -DskipTests
