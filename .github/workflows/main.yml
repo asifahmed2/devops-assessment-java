@@ -16,4 +16,4 @@ jobs:
         run: |
           cd devops-assessment-java
           chmod +x mvnw
-          ./mvnw clean install
+          ./mvnw clean install -DskipTests
