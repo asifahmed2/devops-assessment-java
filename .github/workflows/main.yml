@@ -22,10 +22,10 @@ jobs:
         run: echo "Lint step"
 
       - name: Test
-        run: cd devops-assessment-java && mvn test
+        run: mvn -f devops-assessment-java/pom.xml test
 
       - name: Build
-        run: cd devops-assessment-java && mvn clean install
+        run: mvn -f devops-assessment-java/pom.xml clean install
 
       - name: Deploy
         run: echo "Deploy step"
