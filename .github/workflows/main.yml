@@ -8,19 +8,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: ./devops-assessment-java
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Java
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-
-      - name: Build with Maven
-        run: mvn clean install
+      - name: Build using Maven Wrapper
+        run: |
+          cd devops-assessment-java
+          chmod +x mvnw
+          ./mvnw clean install
