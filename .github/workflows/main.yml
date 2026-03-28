@@ -1,0 +1,35 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: devops-assessment-java
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Lint
+        run: echo "Lint step"
+
+      - name: Test
+        run: mvn test
+
+      - name: Build
+        run: mvn clean install
+
+      - name: Deploy
+        run: echo "Deploy step"
